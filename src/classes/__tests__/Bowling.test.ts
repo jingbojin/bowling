@@ -19,9 +19,9 @@ describe('test Bowling.ts', () => {
     ${ZERO_SCORE.rolls}   | ${ZERO_SCORE.frameScores}   | ${ZERO_SCORE.totalScore}  | ${`ZERO_SCORE's score`}
   `('$comments', ({ rolls, expectedFrameScores, expectedTotalScore }) => {
     const bowling = new Bowling(rolls);
-    expect(bowling.getTotalScore()).toBe(expectedTotalScore);
+    expect(bowling.score()).toBe(expectedTotalScore);
     expect(bowling.getFrameScores()).toEqual(expectedFrameScores);
-    expect(bowling.score())
+    expect(bowling.getLastScore())
       .toEqual(expectedFrameScores[expectedFrameScores.length - 1]);
   });
   
@@ -40,8 +40,8 @@ describe('test Bowling.ts', () => {
     const bowling = new Bowling();
     sequenceOfRolls.map((e:number)=>{bowling.roll(e)});
     expect(bowling.getFrameScores()).toEqual(expectedFrameScores);
-    expect(bowling.getTotalScore()).toBe(expectedTotalScore);
-    expect(bowling.score())
+    expect(bowling.score()).toBe(expectedTotalScore);
+    expect(bowling.getLastScore())
       .toEqual(expectedFrameScores[expectedFrameScores.length - 1]);
   })
 })

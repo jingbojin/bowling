@@ -27,16 +27,17 @@ export class Bowling implements IBowling {
   }
   
   public score(): number {
+    // score ==> Total score of the game, sum of each frames so far:
+    return arraySum(this.frameScores);
+  }
+  
+  public getLastScore(): number {
     // get the last frame score:
     return this.frameScores[this.frameScores.length - 1];
   }
   
   public getFrameScores(): number[] {
     return this.frameScores;
-  }
-  
-  public getTotalScore(): number {
-    return arraySum(this.frameScores);
   }
   
   /**
