@@ -10,7 +10,7 @@
 2. update src/index.ts to enter your customised game.
 3. `npm run print-score`
 
-NOTE:
+
 Test coverage report:
 https://app.codecov.io/gh/jingbojin/bowling/branch/master
 
@@ -24,15 +24,15 @@ https://travis-ci.com/github/jingbojin/bowling
 
 ***
 ## Files:
-1. src/classes/Bowling.ts is the main class.
-2. test-example/* holds the test examples.
-3. __tests__/* are all test files.
+1. `src/classes/Bowling.ts` is the main class.
+2. `test-example/*` holds the test examples.
+3. `__tests__/*` are all test files.
 
 ***
 ## src/classes/Bowling.ts --> calculateScore():
 It is a recursive function. This function's purpose:
 1. Calculate each frame's score, add result to the `frameScores` list.
-2. Remove computed roll(s) from `frameScores` after each execution.
+2. Remove computed roll(s) from `processingRolls` after each execution.
 3. If there is only 1 roll in `processingRolls`, don't do anything, wait for the
    next upcoming roll. 
 ---
@@ -48,8 +48,8 @@ Once a STRIKE happens, we:
 2. Remove first rolls from the `processingRolls`.
 3. The rest two rolls left in `processingRolls`, will be recursively calculated:
    
-   (1): If their sum < 10, recursive function will use two rolls' sum;
-   (2): If their sum == 10 (STRIKE/SPARE), recursive function will wait     
+   - If their sum < 10, recursive function will use two rolls' sum;
+   - If their sum == 10 (STRIKE/SPARE), recursive function will wait     
         for another upcoming roll.
 
 ---
@@ -58,6 +58,9 @@ The `processingRolls` length has a range of 0~3:
 
     0: when two rolls pin < 10, list will reset to empty.
     1: first roll, calculateScore() will skip and wait for next roll.
+    2: two rolls, if their total pin < 10, the frameScore will be the sum. 
+        Otherwise, wait for another roll (since it must be STRIKE/SPARE) 
     3: STRIKE or SPARE
 
-The `processingRolls` length will not exceed 3.
+The `processingRolls` length will never exceed 3, due to continues removal in
+each execution.
