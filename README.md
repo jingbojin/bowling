@@ -1,4 +1,4 @@
-# An example to show TypeScript works with Jest
+# Bowling: TypeScript + Jest
 [![Build Status](https://travis-ci.com/jingbojin/bowling.svg?branch=master)](https://travis-ci.com/jingbojin/bowling)
 [![codecov](https://codecov.io/gh/jingbojin/bowling/branch/master/graph/badge.svg)](https://codecov.io/gh/jingbojin/bowling)
 [![ts](https://badgen.net/badge/-/TypeScript/blue?icon=typescript&label)](https://www.typescriptlang.org)
