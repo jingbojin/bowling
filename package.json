@@ -1,7 +1,7 @@
 {
   "name": "typescript_with_jest",
   "version": "1.0.0",
-  "description": "",
+  "description": "Bowling score system by TypeScript + Jest",
   "main": "index.js",
   "devDependencies": {
     "@types/jest": "^26.0.19",
@@ -24,11 +24,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jingbojin/ts.git"
+    "url": "git+https://github.com/jingbojin/bowling.git"
   },
   "author": "jingbo",
   "bugs": {
-    "url": "https://github.com/jingbojin/ts/issues"
+    "url": "https://github.com/jingbojin/bowling/issues"
   },
-  "homepage": "https://github.com/jingbojin/ts#readme"
+  "homepage": "https://github.com/jingbojin/bowling#readme"
 }
