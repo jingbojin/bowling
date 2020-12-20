@@ -30,32 +30,34 @@ https://travis-ci.com/github/jingbojin/bowling
 
 ***
 ## src/classes/Bowling.ts --> calculateScore():
-It is a recursive function.
-
-This function's purpose:
+It is a recursive function. This function's purpose:
 1. Calculate each frame's score, add result to the `frameScores` list.
 2. Remove computed roll(s) from `frameScores` after each execution.
 3. If there is only 1 roll in `processingRolls`, don't do anything, wait for the
    next upcoming roll. 
-
+---
 The algorithm based on rules:
 1. If two rolls < 10, the score of that frame is the sum of both rolls.
 2. For either a STRIKE or SPARE, the score of that frame, is the sum of 3 rolls.
    This also applies to 10th frame, which may contains max 3 rolls. 
 3. Cannot compute a frame with only 1 roll.  
 
+----
 Once a STRIKE happens, we:
 1. Calculate that frame score, using 3 rolls.
 2. Remove first rolls from the `processingRolls`.
 3. The rest two rolls left in `processingRolls`, will be recursively calculated:
+   
    (1): If their sum < 10, recursive function will use two rolls' sum;
    (2): If their sum == 10 (STRIKE/SPARE), recursive function will wait     
         for another upcoming roll.
 
+---
 As a result:
 The `processingRolls` length has a range of 0~3:
-0: when two rolls pin < 10, list will reset to empty.
-1: first roll, calculateScore() will skip and wait for next roll.
-3: STRIKE or SPARE
+
+    0: when two rolls pin < 10, list will reset to empty.
+    1: first roll, calculateScore() will skip and wait for next roll.
+    3: STRIKE or SPARE
 
 The `processingRolls` length will not exceed 3.
