@@ -64,3 +64,7 @@ The `processingRolls` length has a range of 0~3:
 
 The `processingRolls` length will never exceed 3, due to continues removal in
 each execution.
+
+***
+## Demo:
+![](demo.gif)
